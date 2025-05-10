@@ -1,0 +1,37 @@
+/* Custom cursor styles */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+    font-size: 36px;
+    color: #0066ff;
+    text-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
+    transform: translate(-50%, -50%);
+}
+
+/* Hide default cursor when custom cursor is active */
+body.custom-cursor-active {
+    cursor: none;
+}
+
+/* Make sure links and other interactive elements keep their cursor behavior */
+.custom-cursor-active a,
+.custom-cursor-active button,
+.custom-cursor-active input,
+.custom-cursor-active textarea,
+.custom-cursor-active select,
+.custom-cursor-active [role="button"],
+.custom-cursor-active .bento-item {
+    cursor: none;
+}
+
+/* Optional: when cursor is over clickable elements, change the asterisk color */
+.custom-cursor.clickable {
+    color: #0080ff;
+    text-shadow: 0 0 10px rgba(0, 102, 255, 0.6);
+} 

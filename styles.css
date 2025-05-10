@@ -33,7 +33,7 @@ html, body {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
     background-color: #f5f5f5;
     background-image: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
     color: #333;
@@ -225,7 +225,7 @@ body {
 }
 
 .studio-name h1 {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 600;
     color: #222;
@@ -236,7 +236,7 @@ body {
 }
 
 .studio-name p {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
     font-size: clamp(0.8rem, 1.5vw, 1rem);
     color: #434245;
     cursor: pointer;
@@ -589,7 +589,7 @@ body.page-visible {
     padding: 1.5rem 1rem;
     border-top: 1px solid #eee;
     margin-top: 1rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
 }
 
 .footer-content {
@@ -600,7 +600,7 @@ body.page-visible {
 }
 
 .footer-logo {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
     color: #333;
@@ -678,7 +678,7 @@ body.page-visible {
     font-size: 1.3rem;
     color: #333;
     font-weight: 600;
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
 }
 
 .popup-content p {
@@ -704,7 +704,7 @@ body.page-visible {
 }
 
 #copy-email {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
     background-color: #0066ff;
     border: none;
     color: white;

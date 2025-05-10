@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - rákuts archive</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="custom-cursor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,7 +19,7 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
             background-color: #fff;
             color: #333;
             line-height: 1.6;
@@ -59,7 +66,7 @@
             font-weight: 900;
             color: #333;
             line-height: 1;
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
         }
         
         .title span {
@@ -71,7 +78,7 @@
             color: #333;
             margin-bottom: 0.5rem;
             font-weight: normal;
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
         }
         
         .memoji-container {
@@ -178,7 +185,7 @@
         .bio p {
             font-size: 1rem;
             margin-bottom: 0.5rem;
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
         }
         
         .links {
@@ -196,12 +203,23 @@
             margin-bottom: 1rem;
             text-decoration: none;
             color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .link-item:hover {
+            font-weight: 600;
+            color: #0066ff;
         }
         
         .link-icon {
             width: 24px;
             margin-right: 1rem;
             opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .link-item:hover .link-icon {
+            opacity: 1;
         }
         
         .note {
@@ -249,7 +267,7 @@
             font-weight: 500;
             transition: background-color 0.3s;
             z-index: 100;
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
         }
         
         .back-link:hover {
@@ -350,6 +368,67 @@
                 font-size: 2.5rem;
             }
         }
+        
+        /* Styles for email copy functionality */
+        .copy-message {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #0066ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', sans-serif;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .copy-message.show {
+            opacity: 1;
+            animation: fadeInOut 1.5s ease forwards;
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+            15% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            85% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+        }
+        
+        /* Make the email item appear more clickable */
+        .email-link {
+            cursor: pointer;
+        }
+        
+        .email-link:hover {
+            font-weight: 600;
+            color: #0066ff;
+        }
+        
+        .behance-icon {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            margin-right: 1rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .link-item:hover .behance-icon {
+            opacity: 1;
+            color: #0066ff;
+        }
     </style>
 </head>
 <body>
@@ -357,8 +436,8 @@
         <div class="spacer"></div>
         
         <div class="grid-cell title">
-            <p class="greeting-text">Hello visitor,</p>
-            <h1>I'm rákuts<span>*</span></h1>
+            <p class="greeting-text">Hello dreamer,</p>
+            <h1>We're rákuts<span>*</span></h1>
         </div>
         
         <div class="memoji-container">
@@ -370,17 +449,19 @@
         </div>
         
         <div class="grid-cell bio">
-            <p>Hi! I'm an architecture and interior visualization studio based in Europe.</p>
-            <p>Everyday I create the best visual representations of spaces possible. It's beautiful to have a passion and a work at the same time, don't you think?</p>
+            <p>We're an architecture and interior visualization studio based in Europe — and we're all about turning bold ideas into comfortable to live places with beautiful visuals.</p>
+            <p>Every day, we craft the best possible representations of spaces. Because let's be honest — when your job is your passion, it doesn't feel like work at all, right?
+            <p>And here's the fun part: we've partnered with the incredibly talented Brazilian artist Carlos Torres, who creates custom paintings and illustrations specially for our projects. The cherry on top? Our clients get a lovely 20% discount on his work.</p>
+            <p>So whether you're dreaming big or building bigger—we're here to help make it look amazing.</p>
         </div>
         
         <div class="grid-cell links">
-            <a href="mailto:rakutsarchive.clients@gmail.com" class="link-item">
+            <a href="mailto:rakuts.clients@outlook.com" class="link-item email-link">
                 <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                     <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                rakutsarchive.clients@gmail.com
+                rakuts.clients@outlook.com
             </a>
             
             <a href="https://www.instagram.com/rakutsarchive" class="link-item" target="_blank">
@@ -389,18 +470,26 @@
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                 </svg>
-                Or follow me on Instagram
+                Or follow us on Instagram
+            </a>
+            
+            <a href="https://www.behance.net/romanrakuts" class="link-item" target="_blank">
+                <div class="link-icon behance-icon">Be</div>
+                Also check out our Behance
             </a>
         </div>
         
         <div class="note">
-            <p>* A very passionate and competent studio open to freelance offers and collaboration.</p>
-            <p>** If you want my folio, ask me, I don't bite.</p>
+            <p>* A very passionate and competent studio working worldwide.</p>
+            <p>** If you want a project, contact us, we don't bite :)</p>
         </div>
     </div>
     
     <a href="index.html" class="back-link">Back to Portfolio</a>
     
+    <div class="copy-message" id="copy-message">Email copied!</div>
+    
+    <script src="custom-cursor.js"></script>
     <script>
         // Create confetti elements
         const confettiContainer = document.getElementById('confetti-container');
@@ -448,6 +537,36 @@
             
             confettiContainer.appendChild(confetti);
         }
+        
+        // Email copy to clipboard functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailLink = document.querySelector('.email-link');
+            const copyMessage = document.getElementById('copy-message');
+            
+            emailLink.addEventListener('click', function(e) {
+                // Prevent default mailto: behavior
+                e.preventDefault();
+                
+                // Get the email text
+                const email = 'rakuts.clients@outlook.com';
+                
+                // Copy to clipboard
+                navigator.clipboard.writeText(email).then(function() {
+                    // Show success message
+                    copyMessage.classList.add('show');
+                    
+                    // Hide message after animation completes
+                    setTimeout(function() {
+                        copyMessage.classList.remove('show');
+                    }, 1500);
+                })
+                .catch(function(err) {
+                    console.error('Could not copy text: ', err);
+                    // Fall back to mailto if clipboard fails
+                    window.location.href = 'mailto:' + email;
+                });
+            });
+        });
     </script>
 </body>
 </html> 
