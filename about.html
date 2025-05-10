@@ -13,35 +13,231 @@
         
         body {
             font-family: Helvetica, Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #fff;
             color: #333;
             line-height: 1.6;
-            padding: 2rem;
-        }
-        
-        .container {
-            max-width: 800px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
-            background-color: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            padding: 0 40px;
         }
         
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr auto auto 1fr auto;
+            min-height: 95vh;
+            align-items: start;
+            gap: 0;
+            margin: 0;
+            padding: 20px 0;
         }
         
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+        .spacer {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
         }
         
-        .back-button {
-            display: inline-block;
-            margin-top: 2rem;
+        .grid-cell {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .title {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+            padding-top: 0;
+            margin-top: 0;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .title h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #333;
+            line-height: 1;
+        }
+        
+        .title span {
+            color: #0066ff;
+        }
+        
+        .title .greeting-text {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+        
+        .memoji-container {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            align-self: center;
+            position: relative;
+            width: 255px;
+            height: 255px;
+            margin-left: 80%;
+            transform: translateX(-50%);
+        }
+        
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .memoji-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 255px;
+            height: 255px;
+            border-radius: 50%;
+            background-color: #0066ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+        
+        .memoji-circle:hover {
+            transform: scale(1.05);
+        }
+        
+        .memoji-circle .memoji-default {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+        
+        .memoji-circle .memoji-hover {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .memoji-circle:hover .memoji-default {
+            opacity: 0;
+        }
+        
+        .memoji-circle:hover .memoji-hover {
+            opacity: 1;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            transform: translateY(0) rotate(0deg);
+            pointer-events: none;
+            transition: opacity 0.1s ease;
+        }
+        
+        .memoji-container:hover .confetti {
+            animation: confetti-fall 1.5s ease-out forwards;
+            opacity: 1;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(300px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .bio {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+            padding-top: 0;
+            padding-bottom: 1rem;
+        }
+        
+        .bio p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .links {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .link-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .link-icon {
+            width: 24px;
+            margin-right: 1rem;
+            opacity: 0.8;
+        }
+        
+        .note {
+            grid-column: 1 / 3;
+            grid-row: 5 / 6;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #999;
+            align-self: end;
+            padding-bottom: 1.5rem;
+        }
+        
+        .note p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+            align-self: start;
+            padding-top: 2rem;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        
+        .footer a {
+            color: #999;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-link {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
             padding: 0.7rem 1.5rem;
             background-color: #f0f0f0;
             color: #333;
@@ -49,47 +245,157 @@
             border-radius: 8px;
             font-weight: 500;
             transition: background-color 0.3s;
+            z-index: 100;
         }
         
-        .back-button:hover {
+        .back-link:hover {
             background-color: #e0e0e0;
         }
         
-        .footer {
-            margin-top: 3rem;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
+        @media (max-width: 768px) {
+            body {
+                padding: 0 20px;
+            }
+            
+            .grid-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto auto;
+                margin: 20px 0;
+            }
+            
+            .title, .bio, .links, .note {
+                grid-column: 1 / 2;
+            }
+            
+            .title h1 {
+                font-size: 3.5rem;
+            }
+            
+            .links {
+                grid-row: 4 / 5;
+            }
+            
+            .note {
+                grid-row: 5 / 6;
+            }
+            
+            .footer {
+                grid-column: 1 / 2;
+                grid-row: 3 / 4;
+                align-self: start;
+                text-align: left;
+                padding-top: 0;
+                padding-bottom: 1rem;
+            }
         }
         
-        .footer a {
-            color: #666;
-            text-decoration: none;
-        }
-        
-        .footer a:hover {
-            text-decoration: underline;
+        @media (max-width: 480px) {
+            .grid-cell {
+                padding: 1.5rem;
+            }
+            
+            .title h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>About rákuts archive</h1>
+    <div class="grid-container">
+        <div class="spacer"></div>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et purus eget erat vulputate pharetra nec ac odio. In hac habitasse platea dictumst. Sed ornare luctus placerat. Donec vel auctor quam.</p>
+        <div class="grid-cell title">
+            <p class="greeting-text">Hello visitor,</p>
+            <h1>I'm rákuts<span>*</span></h1>
+        </div>
         
-        <p>Aliquam et tortor non purus elementum lacinia venenatis eget eros. Phasellus lorem orci, luctus in viverra cursus, vehicula eget nibh. Donec congue magna in augue sodales egestas.</p>
+        <div class="memoji-container">
+            <div class="confetti-container" id="confetti-container"></div>
+            <div class="memoji-circle">
+                <img src="images/memoji.png" alt="Memoji" class="memoji-default">
+                <img src="images/memoji2.png" alt="Memoji Hover" class="memoji-hover">
+            </div>
+        </div>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et purus eget erat vulputate pharetra nec ac odio. In hac habitasse platea dictumst. Sed ornare luctus placerat. Donec vel auctor quam. Aliquam et tortor non purus elementum lacinia venenatis eget eros. Phasellus lorem orci, luctus in viverra cursus, vehicula eget nibh. Donec congue magna in augue sodales egestas.</p>
+        <div class="grid-cell bio">
+            <p>Hi! I'm an architecture and interior visualization studio based in Europe.</p>
+            <p>Everyday I create the best visual representations of spaces possible. It's beautiful to have a passion and a work at the same time, don't you think?</p>
+        </div>
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et purus eget erat vulputate pharetra nec ac odio. In hac habitasse platea dictumst.</p>
+        <div class="grid-cell links">
+            <a href="mailto:rakutsarchive.clients@gmail.com" class="link-item">
+                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                rakutsarchive.clients@gmail.com
+            </a>
+            
+            <a href="https://www.instagram.com/rakutsarchive" class="link-item" target="_blank">
+                <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                Or follow me on Instagram
+            </a>
+        </div>
         
-        <a href="index.html" class="back-button">Back to Portfolio</a>
-        
-        <div class="footer">
-            <a href="https://www.instagram.com/rakutsarchive" target="_blank">@rakutsarchive</a> | 
-            <a href="mailto:rakutsarchive.clients@gmail.com">rakutsarchive.clients@gmail.com</a>
+        <div class="note">
+            <p>* A very passionate and competent studio open to freelance offers and collaboration.</p>
+            <p>** If you want my folio, ask me, I don't bite.</p>
         </div>
     </div>
+    
+    <a href="index.html" class="back-link">Back to Portfolio</a>
+    
+    <script>
+        // Create confetti elements
+        const confettiContainer = document.getElementById('confetti-container');
+        const confettiColors = ['#FFC700', '#FF0055', '#0066FF', '#44DD00', '#FF4422', '#9D00FF'];
+        const confettiCount = 60;
+        
+        for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            
+            // Random position around the circle
+            const angle = Math.random() * 360;
+            const distance = 110 + Math.random() * 60;
+            const x = Math.cos(angle * Math.PI / 180) * distance + 127;
+            const y = Math.sin(angle * Math.PI / 180) * distance + 127;
+            
+            confetti.style.left = `${x}px`;
+            confetti.style.top = `${y}px`;
+            
+            // Random size
+            const size = 5 + Math.random() * 10;
+            confetti.style.width = `${size}px`;
+            confetti.style.height = `${size}px`;
+            
+            // Random color
+            const color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+            confetti.style.backgroundColor = color;
+            
+            // Random shape
+            const shapes = ['circle', 'square', 'triangle'];
+            const shape = shapes[Math.floor(Math.random() * shapes.length)];
+            if (shape === 'circle') {
+                confetti.style.borderRadius = '50%';
+            } else if (shape === 'triangle') {
+                confetti.style.width = '0';
+                confetti.style.height = '0';
+                confetti.style.backgroundColor = 'transparent';
+                confetti.style.borderLeft = `${size/2}px solid transparent`;
+                confetti.style.borderRight = `${size/2}px solid transparent`;
+                confetti.style.borderBottom = `${size}px solid ${color}`;
+            }
+            
+            // Random animation delay
+            confetti.style.animationDelay = `${Math.random() * 0.5}s`;
+            
+            confettiContainer.appendChild(confetti);
+        }
+    </script>
 </body>
 </html> 

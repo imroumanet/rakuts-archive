@@ -195,4 +195,57 @@ style.textContent = `
     }
 `;
 
-document.head.appendChild(style); 
+document.head.appendChild(style);
+
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Add page transition div to the body
+    const transitionElement = document.createElement('div');
+    transitionElement.className = 'page-transition';
+    document.body.appendChild(transitionElement);
+    
+    // Handle page entering animation
+    if (sessionStorage.getItem('isPageTransition') === 'true') {
+        // If this is a page we navigated to, add initial hidden class
+        document.body.classList.add('page-entering');
+        
+        // After a delay, show the page content
+        setTimeout(() => {
+            document.body.classList.add('page-visible');
+            // Clear the session flag
+            sessionStorage.removeItem('isPageTransition');
+        }, 300); // Delay before showing content
+    }
+    
+    // Get all elements with the class 'full-link'
+    const links = document.querySelectorAll('.full-link');
+    
+    // Add click event listener to each link
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Prevent default link behavior
+            e.preventDefault();
+            
+            // Store the href for redirection
+            const href = this.getAttribute('href');
+            
+            // Set flag for the target page
+            sessionStorage.setItem('isPageTransition', 'true');
+            
+            // Fade out current page
+            document.body.classList.add('page-leaving');
+            transitionElement.classList.add('active');
+            
+            // Apply button press animation if it's the studio button
+            if (this.closest('.studio-item')) {
+                const studioItem = this.closest('.studio-item');
+                studioItem.classList.add('button-pressed');
+            }
+            
+            // Delay redirection to allow for animations
+            setTimeout(function() {
+                window.location.href = href;
+            }, 700); // 0.7 second delay
+        });
+    });
+}); 
