@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spa Bathroom - rákuts archive</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../custom-cursor.css">
+    <style>
+        body {
+            overflow-y: auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        
+        .project-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s forwards;
+            animation-delay: 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .project-header {
+            margin-bottom: 3rem;
+        }
+        
+        .project-title {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+            animation-delay: 0.5s;
+        }
+        
+        .project-description {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+            animation-delay: 0.7s;
+        }
+        
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+            animation-delay: 0.9s;
+        }
+        
+        .project-image {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            background: #eee;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .detail-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .detail-column p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .back-button {
+            display: inline-block;
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+            animation-delay: 1.3s;
+            font-weight: 500;
+            z-index: 10;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        @media (max-width: 768px) {
+            .project-container {
+                padding: 1.5rem;
+            }
+            
+            .project-title {
+                font-size: 2.2rem;
+            }
+            
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .back-button {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 1.5rem;
+                font-size: 0.9rem;
+                padding: 0.7rem 1.2rem;
+            }
+            
+            .back-button:hover {
+                transform: translateX(-50%) translateY(-2px);
+            }
+        }
+    </style>
+</head>
+<body class="page-entering">
+    <div class="project-container">
+        <div class="project-header">
+            <h1 class="project-title">Spa Bathroom</h1>
+            <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et purus eget erat vulputate pharetra nec ac odio. In hac habitasse platea dictumst. Sed ornare luctus placerat. Donec vel auctor quam.</p>
+        </div>
+        
+        <div class="project-content">
+            <div class="project-image-container">
+                <img src="../images/9.PNG" alt="Spa Bathroom" class="project-image">
+            </div>
+            
+            <div class="project-info">
+                <div class="detail-column">
+                    <h3>Project Details</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et purus eget erat vulputate pharetra nec ac odio. In hac habitasse platea dictumst. Sed ornare luctus placerat. Donec vel auctor quam. Aliquam et tortor non purus elementum lacinia venenatis eget eros.</p>
+                    <p>Phasellus lorem orci, luctus in viverra cursus, vehicula eget nibh. Donec congue magna in augue sodales egestas. Sed scelerisque nibh vel odio placerat, eu aliquam erat scelerisque.</p>
+                </div>
+                <div class="detail-column">
+                    <h3>Approach & Solution</h3>
+                    <p>Cras laoreet dui a aliquam interdum. Ut eu erat in mauris volutpat iaculis. Fusce tincidunt vestibulum justo, ac mollis enim bibendum at. Cras feugiat ullamcorper risus, quis fermentum risus porttitor at.</p>
+                    <p>Curabitur consequat, augue nec feugiat malesuada, dolor felis convallis enim, a venenatis eros sem pellentesque nunc. Aenean vitae ipsum erat. Nullam imperdiet augue quis nibh commodo, eget pellentesque nulla dapibus.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a href="../index.html" class="back-button">Back to Portfolio</a>
+    
+    <div class="page-transition"></div>
+    
+    <script src="../custom-cursor.js"></script>
+    <script>
+        // Wait for DOM to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle page transitions
+            if (sessionStorage.getItem('isPageTransition') === 'true') {
+                // If this is a page we navigated to, add initial hidden class
+                document.body.classList.add('page-entering');
+                
+                // After a delay, show the page content
+                setTimeout(() => {
+                    document.body.classList.add('page-visible');
+                    // Clear the session flag
+                    sessionStorage.removeItem('isPageTransition');
+                }, 300);
+            } else {
+                // If direct page load, just show content
+                document.body.classList.add('page-visible');
+            }
+            
+            // Set up back button transition
+            const backButton = document.querySelector('.back-button');
+            const pageTransition = document.querySelector('.page-transition');
+            
+            backButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Store the href for redirection
+                const href = this.getAttribute('href');
+                
+                // Set flag for the target page
+                sessionStorage.setItem('isPageTransition', 'true');
+                
+                // Fade out current page
+                document.body.classList.add('page-leaving');
+                pageTransition.classList.add('active');
+                
+                // Delay redirection to allow for animations
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 700); // 0.7 second delay
+            });
+        });
+    </script>
+</body>
+</html> 
