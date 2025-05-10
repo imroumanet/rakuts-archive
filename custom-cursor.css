@@ -34,4 +34,25 @@ body.custom-cursor-active {
 .custom-cursor.clickable {
     color: #0080ff;
     text-shadow: 0 0 10px rgba(0, 102, 255, 0.6);
+}
+
+/* Disable custom cursor on mobile devices */
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+    .custom-cursor {
+        display: none !important;
+    }
+    
+    body.custom-cursor-active {
+        cursor: auto !important;
+    }
+    
+    .custom-cursor-active a,
+    .custom-cursor-active button,
+    .custom-cursor-active input,
+    .custom-cursor-active textarea,
+    .custom-cursor-active select,
+    .custom-cursor-active [role="button"],
+    .custom-cursor-active .bento-item {
+        cursor: pointer !important;
+    }
 } 
