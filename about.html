@@ -287,6 +287,54 @@
                 padding-top: 0;
                 padding-bottom: 1rem;
             }
+            
+            /* Specific memoji container styles for mobile */
+            .memoji-container {
+                grid-column: 1 / 1;
+                grid-row: 1 / 1;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                align-self: center;
+                position: relative;
+                width: 255px;
+                height: 270px;
+                margin-left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .memoji-circle {
+                width: 255px;
+                height: 255px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            
+            /* Prevent circle from moving on hover/click in mobile */
+            .memoji-circle:hover {
+                transform: translate(-50%, -50%);
+            }
+            
+            /* Still show hover effects for the images */
+            .memoji-circle:hover .memoji-default,
+            .memoji-circle:hover .memoji-hover {
+                /* Keep these effects */
+            }
+            
+            /* Back button mobile styles */
+            .back-link {
+                bottom: 1.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+                border-radius: 25px;
+                width: auto;
+                min-width: 140px;
+                text-align: center;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
         }
         
         @media (max-width: 480px) {
