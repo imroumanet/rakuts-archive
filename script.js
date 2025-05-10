@@ -248,4 +248,54 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 700); // 0.7 second delay
         });
     });
+
+    // Email popup functionality
+    const contactLink = document.getElementById('contact-link');
+    const emailPopup = document.getElementById('email-popup');
+    const closePopup = document.querySelector('.close-popup');
+    const copyEmailBtn = document.getElementById('copy-email');
+    
+    if (contactLink && emailPopup) {
+        // Show popup when contact link is clicked
+        contactLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            emailPopup.style.display = 'flex';
+        });
+        
+        // Close popup when X is clicked
+        if (closePopup) {
+            closePopup.addEventListener('click', function() {
+                emailPopup.style.display = 'none';
+            });
+        }
+        
+        // Close popup when clicking outside content
+        emailPopup.addEventListener('click', function(e) {
+            if (e.target === emailPopup) {
+                emailPopup.style.display = 'none';
+            }
+        });
+        
+        // Copy email functionality
+        if (copyEmailBtn) {
+            copyEmailBtn.addEventListener('click', function() {
+                const emailText = document.querySelector('.popup-content p').textContent;
+                
+                // Copy to clipboard
+                navigator.clipboard.writeText(emailText).then(function() {
+                    // Visual feedback
+                    copyEmailBtn.textContent = 'Copied!';
+                    copyEmailBtn.style.animation = 'copied 1.5s';
+                    
+                    // Reset after animation
+                    setTimeout(function() {
+                        copyEmailBtn.textContent = 'Copy Email';
+                        copyEmailBtn.style.animation = '';
+                    }, 1500);
+                }).catch(function(err) {
+                    console.error('Could not copy text: ', err);
+                });
+            });
+        }
+    }
 }); 
