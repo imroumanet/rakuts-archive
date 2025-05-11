@@ -42,18 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // Add styles for animations and transitions
 const style = document.createElement('style');
 style.textContent = `    
-    .visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    body.loaded .bento-item {
+    .bento-item {
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.5s ease, transform 0.5s ease;
     }
     
-    body.loaded .bento-item.visible {
+    .bento-item.visible {
         opacity: 1;
         transform: translateY(0);
     }
@@ -80,6 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
             sessionStorage.removeItem('isPageTransition');
         }, 300); // Delay before showing content
     }
+    
+    // Start the animation sequence immediately
+    const bentoItems = document.querySelectorAll('.bento-item');
+    bentoItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.classList.add('visible');
+        }, index * 50); // Reduced delay between items for smoother animation
+    });
     
     // Get all elements with the class 'full-link'
     const links = document.querySelectorAll('.full-link');
