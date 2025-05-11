@@ -1,0 +1,24 @@
+RewriteEngine On
+
+# Remove .html extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Handle specific redirects
+RewriteRule ^home$ index.html [L]
+RewriteRule ^about-us$ about.html [L]
+
+# Handle project pages with dynamic names
+RewriteRule ^projects/project-wonka-chocolate$ projects/shape1.html [L]
+RewriteRule ^projects/complex-r11$ projects/shape2.html [L]
+RewriteRule ^projects/project-salted-caramel$ projects/shape3.html [L]
+RewriteRule ^projects/equestrian-space$ projects/shape4.html [L]
+RewriteRule ^projects/project-tropical-paradise$ projects/shape5.html [L]
+RewriteRule ^projects/villa-savannah$ projects/shape6.html [L]
+RewriteRule ^projects/project-scandi$ projects/shape7.html [L]
+RewriteRule ^projects/project-vanilla$ projects/shape8.html [L]
+RewriteRule ^projects/solitude-view$ projects/shape9.html [L]
+
+# Handle 404 errors
+ErrorDocument 404 /home 
